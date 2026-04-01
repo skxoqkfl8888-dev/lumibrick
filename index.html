@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>루미브릭 | 구리 커튼 블라인드 전문</title>
+  <meta name="description" content="구리커튼 블라인드 전문 브랜드 루미브릭. 무료실측·무료견적·시공까지 원스톱 서비스. 구리시·중랑구·광진구·성동구·동대문구·노원구 방문 상담." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111111;
+      --dark: #1e1e1e;
+      --gray: #6b6b6b;
+      --light-gray: #f5f5f3;
+      --border: #e0e0e0;
+      --white: #ffffff;
+      --accent: #b5975a;
+      --accent-light: #d4b47a;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--dark); background: var(--white); line-height: 1.7; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px; height: 72px;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.08); }
+    .nav-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 2px; color: var(--black); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--dark); text-decoration: none; letter-spacing: .5px; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--black); color: var(--white);
+      padding: 10px 24px; font-size: 13px; font-weight: 500;
+      border: none; cursor: pointer; letter-spacing: .5px;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--accent); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--black); display: block; transition: .3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; padding-top: 72px;
+      display: flex; align-items: center;
+      background: var(--black);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #111 0%, #2a2a2a 50%, #1a1a1a 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: .04;
+      background-image: repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 1px, transparent 60px),
+                        repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 1px, transparent 60px);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 0 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-text {}
+    .hero-badge {
+      display: inline-block; background: var(--accent);
+      color: var(--white); font-size: 12px; font-weight: 500;
+      letter-spacing: 2px; padding: 7px 16px; margin-bottom: 28px;
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 700; color: var(--white);
+      line-height: 1.15; margin-bottom: 12px; letter-spacing: -1px;
+    }
+    .hero-title-kr {
+      font-size: clamp(20px, 2.4vw, 28px); font-weight: 300;
+      color: rgba(255,255,255,.75); margin-bottom: 28px; letter-spacing: 1px;
+    }
+    .hero-desc { font-size: 16px; color: rgba(255,255,255,.65); line-height: 2; margin-bottom: 44px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: var(--white);
+      padding: 18px 40px; font-size: 15px; font-weight: 600;
+      letter-spacing: .5px; border: none; cursor: pointer;
+      text-decoration: none; transition: background .2s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      padding: 18px 40px; font-size: 15px; font-weight: 500;
+      letter-spacing: .5px; border: 1px solid rgba(255,255,255,.3);
+      cursor: pointer; text-decoration: none; transition: border-color .2s, color .2s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 52px;
+      padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .stat-item {}
+    .stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: var(--accent); }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,.5); letter-spacing: .5px; margin-top: 4px; }
+
+    .hero-visual {
+      position: relative;
+    }
+    .hero-img-wrap {
+      width: 100%; aspect-ratio: 4/5;
+      background: #2a2a2a;
+      overflow: hidden; position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; opacity: .85;
+    }
+    /* 사진 없을 때 placeholder */
+    .hero-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.2); font-size: 13px; letter-spacing: 1px;
+      background: linear-gradient(160deg, #2a2a2a, #1a1a1a);
+    }
+    .hero-img-placeholder svg { margin-bottom: 12px; opacity: .3; }
+    .hero-tag {
+      position: absolute; bottom: -16px; left: -16px;
+      background: var(--accent); color: var(--white);
+      padding: 16px 24px; font-size: 13px; font-weight: 500; line-height: 1.5;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 100px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+    .section-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 3px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.2vw, 42px); font-weight: 700;
+      color: var(--black); line-height: 1.3; margin-bottom: 20px;
+    }
+    .section-desc { font-size: 16px; color: var(--gray); line-height: 2; max-width: 640px; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap {
+      aspect-ratio: 1/1.1;
+      background: var(--light-gray);
+      overflow: hidden; position: relative;
+    }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: #bbb; letter-spacing: 1px;
+    }
+    .about-points { margin-top: 36px; display: flex; flex-direction: column; gap: 18px; }
+    .about-point { display: flex; gap: 16px; align-items: flex-start; }
+    .point-num {
+      font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+      color: var(--accent); letter-spacing: 1px; min-width: 28px; padding-top: 2px;
+    }
+    .point-text { font-size: 15px; color: var(--dark); line-height: 1.8; }
+    .point-text strong { font-weight: 700; color: var(--black); }
+
+    /* ── SERVICE PROCESS ── */
+    #process { background: var(--black); }
+    #process .section-title { color: var(--white); }
+    #process .section-desc { color: rgba(255,255,255,.5); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+      margin-top: 60px; position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 36px; left: 10%; right: 10%; height: 1px;
+      background: rgba(255,255,255,.1);
+    }
+    .process-step { text-align: center; padding: 0 10px; position: relative; z-index: 1; }
+    .step-circle {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #222; border: 1px solid #333;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700; color: var(--accent);
+      transition: background .3s;
+    }
+    .process-step:hover .step-circle { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .step-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.8; }
+    .step-badge {
+      display: inline-block; background: var(--accent);
+      color: var(--white); font-size: 11px; font-weight: 700;
+      padding: 4px 10px; margin-bottom: 8px; letter-spacing: 1px;
+    }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--light-gray); }
+    .product-tabs { display: flex; gap: 0; margin: 40px 0 32px; border-bottom: 2px solid var(--border); }
+    .tab-btn {
+      padding: 12px 24px; font-size: 14px; font-weight: 500;
+      background: none; border: none; cursor: pointer; color: var(--gray);
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: color .2s, border-color .2s;
+    }
+    .tab-btn.active { color: var(--black); border-bottom-color: var(--black); }
+    .product-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+    .product-card {
+      background: var(--white); overflow: hidden;
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.1); }
+    .product-img {
+      aspect-ratio: 1; background: #e8e8e6;
+      overflow: hidden; position: relative;
+    }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-img-ph {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 12px; color: #bbb; gap: 8px;
+    }
+    .product-info { padding: 18px 20px; }
+    .product-name { font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 6px; }
+    .product-sub { font-size: 13px; color: var(--gray); }
+    .product-tag {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      background: #f0ede8; color: var(--accent);
+      padding: 4px 12px; margin-top: 10px; letter-spacing: .5px;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--white); }
+    .gallery-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      overflow: hidden; background: #e8e8e6; position: relative; cursor: pointer;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2; aspect-ratio: 8/5;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item-ph {
+      width: 100%; height: 100%; min-height: 200px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 12px; color: #bbb; gap: 8px; padding: 20px;
+      text-align: center;
+    }
+    .gallery-overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .3s;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(0,0,0,.3); }
+    .gallery-overlay-text {
+      color: var(--white); font-size: 13px; font-weight: 500;
+      opacity: 0; transition: opacity .3s; letter-spacing: 1px;
+    }
+    .gallery-item:hover .gallery-overlay-text { opacity: 1; }
+
+    /* ── WHY ── */
+    #why { background: var(--light-gray); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+    .why-card {
+      background: var(--white); padding: 44px 36px;
+      border-left: 3px solid transparent;
+      transition: border-color .3s;
+    }
+    .why-card:hover { border-left-color: var(--accent); }
+    .why-icon { font-size: 32px; margin-bottom: 20px; }
+    .why-title { font-size: 18px; font-weight: 700; margin-bottom: 14px; color: var(--black); }
+    .why-desc { font-size: 15px; color: var(--gray); line-height: 1.9; }
+
+    /* ── AREA ── */
+    #area { background: var(--white); }
+    .area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 48px; }
+    .area-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .area-tag {
+      background: var(--light-gray); color: var(--dark);
+      padding: 8px 16px; font-size: 13px; font-weight: 500;
+      border: 1px solid var(--border); transition: background .2s, border-color .2s;
+    }
+    .area-tag:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .area-title { font-size: 19px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+    .area-sub { font-size: 14px; color: var(--gray); }
+    .area-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .area-card {
+      background: var(--white); padding: 24px; border: 1px solid var(--border); border-radius: 8px;
+    }
+    .area-swipe-hint { display: none; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--black); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-desc { color: rgba(255,255,255,.5); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 56px; }
+    .contact-info { }
+    .contact-item { display: flex; gap: 20px; margin-bottom: 36px; align-items: flex-start; }
+    .contact-icon {
+      width: 48px; height: 48px; background: #222; border: 1px solid #333;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .contact-label { font-size: 12px; font-weight: 600; letter-spacing: 2px; color: var(--accent); margin-bottom: 6px; }
+    .contact-value { font-size: 17px; font-weight: 500; color: var(--white); }
+    .contact-value-placeholder { font-size: 16px; color: rgba(255,255,255,.3); font-style: italic; }
+    .contact-form-wrap { }
+    .form-row { margin-bottom: 16px; }
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%; background: #1a1a1a; border: 1px solid #333;
+      color: var(--white); padding: 14px 18px; font-size: 14px;
+      font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color .2s;
+    }
+    .form-row input::placeholder, .form-row textarea::placeholder { color: rgba(255,255,255,.25); }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--accent); }
+    .form-row textarea { height: 120px; resize: vertical; }
+    .form-row select option { background: #222; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-submit {
+      width: 100%; background: var(--accent); color: var(--white);
+      border: none; padding: 16px; font-size: 15px; font-weight: 500;
+      font-family: 'Noto Sans KR', sans-serif; cursor: pointer;
+      letter-spacing: .5px; transition: background .2s;
+    }
+    .btn-submit:hover { background: var(--accent-light); }
+    .kakao-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; background: #FEE500; color: #3A1D1D;
+      border: none; padding: 16px; font-size: 15px; font-weight: 700;
+      font-family: 'Noto Sans KR', sans-serif; cursor: pointer;
+      margin-top: 10px; text-decoration: none; transition: opacity .2s;
+    }
+    .kakao-btn:hover { opacity: .88; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a; border-top: 1px solid #1f1f1f;
+      padding: 40px 0; text-align: center;
+    }
+    .footer-logo { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); letter-spacing: 2px; margin-bottom: 14px; }
+    .footer-logo span { color: var(--accent); }
+    .footer-info { font-size: 13px; color: rgba(255,255,255,.25); line-height: 2; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,.15); margin-top: 20px; }
+
+    /* ── FLOATING CTA ── */
+    .float-cta {
+      position: fixed; right: 28px; bottom: 28px; z-index: 99;
+      display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
+    }
+    .float-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px; font-size: 13px; font-weight: 700;
+      cursor: pointer; border: none; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2); transition: transform .2s;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .float-btn:hover { transform: translateY(-2px); }
+    .float-kakao { background: #FEE500; color: #3A1D1D; }
+    .float-tel { background: var(--accent); color: var(--white); }
+
+    /* ── TABLET (max 900px) ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .nav-mobile-menu {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--white); padding: 28px 24px; border-bottom: 1px solid var(--border);
+        flex-direction: column; gap: 22px; z-index: 99;
+      }
+      .nav-mobile-menu.open { display: flex; }
+      .nav-mobile-menu a { font-size: 17px; font-weight: 500; color: var(--dark); text-decoration: none; padding: 4px 0; }
+
+      .container { padding: 0 24px; }
+      section { padding: 72px 0; }
+      .hero-content { grid-template-columns: 1fr; gap: 0; padding: 40px 24px 60px; }
+      .hero-visual { display: none; }
+      .hero-desc { font-size: 15px; }
+      .hero-stats { gap: 28px; flex-wrap: wrap; }
+      .stat-num { font-size: 26px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-img-wrap { aspect-ratio: 16/9; }
+
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .process-steps::before { display: none; }
+      .step-circle { width: 60px; height: 60px; font-size: 12px; }
+
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .gallery-item:first-child { grid-column: span 2; }
+
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+
+      .area-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .float-btn { padding: 13px 18px; font-size: 13px; }
+    }
+
+    /* ── MOBILE (max 600px) ── */
+    @media (max-width: 600px) {
+      nav { height: 64px; }
+      .nav-mobile-menu { top: 64px; }
+
+      .container { padding: 0 18px; }
+      section { padding: 60px 0; }
+
+      /* Hero */
+      .hero-content { padding: 36px 18px 52px; }
+      .hero-badge { font-size: 11px; letter-spacing: 1px; padding: 6px 12px; }
+      .hero-title { font-size: clamp(36px, 10vw, 52px); }
+      .hero-title-kr { font-size: clamp(17px, 4.5vw, 22px); }
+      .hero-desc { font-size: 14px; line-height: 1.9; }
+      .btn-primary, .btn-outline { padding: 16px 28px; font-size: 14px; width: 100%; text-align: center; }
+      .hero-btns { flex-direction: column; gap: 10px; }
+      .hero-stats { gap: 20px; margin-top: 40px; padding-top: 32px; }
+      .stat-num { font-size: 24px; }
+      .stat-label { font-size: 12px; }
+
+      /* Section titles */
+      .section-title { font-size: clamp(22px, 6vw, 30px); }
+      .section-desc { font-size: 15px; }
+
+      /* About */
+      .about-img-wrap { aspect-ratio: 4/3; }
+      .about-points { gap: 16px; }
+      .point-text { font-size: 14px; }
+
+      /* Process */
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .step-circle { width: 54px; height: 54px; font-size: 11px; }
+      .step-title { font-size: 14px; }
+      .step-desc { font-size: 12px; }
+
+      /* Products */
+      .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .product-info { padding: 14px 14px; }
+      .product-name { font-size: 14px; }
+      .product-sub { font-size: 12px; }
+      .tab-btn { padding: 10px 14px; font-size: 13px; }
+
+      /* Gallery */
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .gallery-item:first-child { grid-column: span 2; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card { padding: 32px 24px; }
+      .why-title { font-size: 17px; }
+      .why-desc { font-size: 14px; }
+
+      /* Area */
+      .area-cards {
+        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+        gap: 14px; padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .area-cards::-webkit-scrollbar { height: 4px; }
+      .area-cards::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+      .area-card {
+        min-width: 260px; flex-shrink: 0; scroll-snap-align: start;
+      }
+      .area-swipe-hint {
+        display: block; text-align: center; font-size: 12px; color: var(--gray);
+        margin-top: 8px; animation: swipeHint 2s ease-in-out infinite;
+      }
+      @keyframes swipeHint { 0%,100%{opacity:.4;} 50%{opacity:1;} }
+      .area-tag { font-size: 13px; padding: 8px 14px; }
+
+      /* Contact */
+      .form-grid { grid-template-columns: 1fr; }
+      .contact-item { gap: 14px; }
+      .contact-icon { width: 42px; height: 42px; font-size: 16px; }
+      .contact-value { font-size: 15px; }
+
+      /* Float buttons */
+      .float-cta { right: 16px; bottom: 16px; gap: 8px; }
+      .float-btn { padding: 12px 16px; font-size: 13px; }
+
+      /* Footer */
+      .footer-info { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">LUMI<span>BRICK</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">브랜드</a></li>
+    <li><a href="#process">서비스</a></li>
+    <li><a href="#products">제품</a></li>
+    <li><a href="#gallery">시공사례</a></li>
+    <li><a href="#area">상담지역</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">무료 상담 신청</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">브랜드 소개</a>
+  <a href="#process" onclick="toggleMenu()">서비스 안내</a>
+  <a href="#products" onclick="toggleMenu()">제품 라인업</a>
+  <a href="#gallery" onclick="toggleMenu()">시공 사례</a>
+  <a href="#area" onclick="toggleMenu()">상담 지역</a>
+  <a href="#contact" onclick="toggleMenu()">무료 상담 신청</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">GURI CURTAIN &amp; BLIND SPECIALIST</div>
+      <h1 class="hero-title">LUMI<br>BRICK</h1>
+      <p class="hero-title-kr">공간의 빛과 분위기를<br>섬세하게 설계합니다</p>
+      <p class="hero-desc">
+        구리커튼 블라인드 전문 브랜드 루미브릭.<br>
+        상담부터 실측, 견적, 제작, 시공, 사후관리까지<br>
+        한 번에 진행되는 원스톱 서비스를 제공합니다.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">무료 방문 상담 신청</a>
+        <a href="#gallery" class="btn-outline">시공 사례 보기</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">FREE</div>
+          <div class="stat-label">무료실측 · 무료견적</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1:1</div>
+          <div class="stat-label">전담 방문 상담</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">A/S</div>
+          <div class="stat-label">시공 후 책임관리</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="images/hero.jpg" alt="루미브릭 시공사례">
+      </div>
+      <div class="hero-tag">구리시 · 중랑구 · 광진구<br>성동구 · 동대문구 · 노원구<br>방문 상담</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="images/about.jpg" alt="루미브릭 소개">
+      </div>
+      <div>
+        <p class="section-label">About Lumibrick</p>
+        <h2 class="section-title" style="white-space:nowrap;font-size:clamp(20px,2.6vw,38px);">단순히 창을 가리는 것이 아닌<br>공간의 완성을 만듭니다</h2>
+        <p class="section-desc">
+          커튼과 블라인드는 집의 인상을 완성하고 생활의 편안함을 결정하는 중요한 요소입니다.
+          루미브릭은 공간의 구조와 채광, 가구 배치, 생활 패턴까지 꼼꼼하게 확인한 뒤
+          어울리는 스타일을 제안해드립니다.
+        </p>
+        <div class="about-points">
+          <div class="about-point">
+            <span class="point-num">01</span>
+            <p class="point-text"><strong>공간별 맞춤 제안</strong> — 거실, 침실, 아이방, 사무공간 특성에 맞는 최적의 제품을 추천합니다.</p>
+          </div>
+          <div class="about-point">
+            <span class="point-num">02</span>
+            <p class="point-text"><strong>디테일한 실측</strong> — 창 사이즈, 천장 높이, 에어컨 위치, 가구 간섭 여부까지 고려합니다.</p>
+          </div>
+          <div class="about-point">
+            <span class="point-num">03</span>
+            <p class="point-text"><strong>맞춤 제작 방식</strong> — 규격품이 아닌 공간에 딱 맞는 제품으로 완성도를 높입니다.</p>
+          </div>
+          <div class="about-point">
+            <span class="point-num">04</span>
+            <p class="point-text"><strong>합리적인 가격</strong> — 유통 단계를 줄여 품질과 가격 모두 만족하실 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <p class="section-label" style="color:var(--accent)">Our Service</p>
+    <h2 class="section-title">예약 한 번으로 모든 것이 해결됩니다</h2>
+    <p class="section-desc">매장 방문 없이 고객님 공간으로 직접 찾아가 상담부터 시공까지 원스톱으로 진행합니다.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-circle">01</div>
+        <div class="step-badge">FREE</div>
+        <div class="step-title">상담 예약</div>
+        <div class="step-desc">전화 또는<br>카카오톡 문의</div>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">02</div>
+        <div class="step-badge">FREE</div>
+        <div class="step-title">방문 실측</div>
+        <div class="step-desc">공간 구조<br>채광 확인</div>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">03</div>
+        <div class="step-badge">FREE</div>
+        <div class="step-title">스타일 제안</div>
+        <div class="step-desc">맞춤 디자인<br>견적 안내</div>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">04</div>
+        <div class="step-title">맞춤 제작</div>
+        <div class="step-desc">국산 원단<br>정밀 재단</div>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">05</div>
+        <div class="step-title">전문 시공</div>
+        <div class="step-desc">균형감 있는<br>완성 마감</div>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">06</div>
+        <div class="step-title">사후 관리</div>
+        <div class="step-desc">A/S 책임<br>사후 안내</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <p class="section-label">Products</p>
+    <h2 class="section-title">공간에 맞는 제품을 제안합니다</h2>
+    <p class="section-desc">거실부터 침실, 아이방, 사무공간까지 용도에 맞는 다양한 라인업을 보유하고 있습니다.</p>
+
+    <div class="product-tabs">
+      <button class="tab-btn active" onclick="filterProducts('all', this)">전체</button>
+      <button class="tab-btn" onclick="filterProducts('curtain', this)">커튼</button>
+      <button class="tab-btn" onclick="filterProducts('blind', this)">블라인드</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <div class="product-card" data-cat="curtain">
+        <div class="product-img"><img src="images/products/curtain_sheer.jpg" alt="차르르커튼"></div>
+        <div class="product-info">
+          <div class="product-name">차르르커튼</div>
+          <div class="product-sub">가볍고 부드러운 빛 투과 커튼</div>
+          <span class="product-tag">거실 추천</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="curtain">
+        <div class="product-img"><img src="images/products/curtain_chiffon.jpg" alt="쉬폰커튼"></div>
+        <div class="product-info">
+          <div class="product-name">쉬폰커튼</div>
+          <div class="product-sub">우아한 반투명 소재 커튼</div>
+          <span class="product-tag">거실 추천</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="curtain">
+        <div class="product-img"><img src="images/products/curtain_blackout.jpg" alt="암막커튼"></div>
+        <div class="product-info">
+          <div class="product-name">암막커튼</div>
+          <div class="product-sub">완벽한 차광으로 숙면 보장</div>
+          <span class="product-tag">침실 추천</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="curtain">
+        <div class="product-img"><img src="images/products/curtain_shape_memory.jpg" alt="형상기억커튼"></div>
+        <div class="product-info">
+          <div class="product-name">형상기억커튼</div>
+          <div class="product-sub">세탁 후에도 주름 형태 유지</div>
+          <span class="product-tag">관리 편리</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="curtain">
+        <div class="product-img"><img src="images/products/curtain_motorized.jpg" alt="전동커튼"></div>
+        <div class="product-info">
+          <div class="product-name">전동커튼</div>
+          <div class="product-sub">리모컨·스마트홈 연동 자동화</div>
+          <span class="product-tag">프리미엄</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="blind">
+        <div class="product-img"><img src="images/products/blind_roller.jpg" alt="롤블라인드"></div>
+        <div class="product-info">
+          <div class="product-name">롤블라인드</div>
+          <div class="product-sub">깔끔하고 실용적인 기본형</div>
+          <span class="product-tag">사무공간 추천</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="blind">
+        <div class="product-img"><img src="images/products/blind_combo.jpg" alt="콤비블라인드"></div>
+        <div class="product-info">
+          <div class="product-name">콤비블라인드</div>
+          <div class="product-sub">이중 원단으로 채광 자유 조절</div>
+          <span class="product-tag">거실·침실</span>
+        </div>
+      </div>
+      <div class="product-card" data-cat="blind">
+        <div class="product-img"><img src="images/products/blind_wood.jpg" alt="우드블라인드"></div>
+        <div class="product-info">
+          <div class="product-name">우드블라인드</div>
+          <div class="product-sub">고급스러운 천연목 소재</div>
+          <span class="product-tag">프리미엄</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-intro">
+      <div>
+        <p class="section-label">Gallery</p>
+        <h2 class="section-title">시공 사례</h2>
+      </div>
+      <p style="font-size:14px; color:var(--gray);">실제 시공된 공간의 사진입니다</p>
+    </div>
+    <!-- 탭 -->
+    <div class="product-tabs" style="margin-bottom:32px">
+      <button class="tab-btn active" onclick="filterGallery('all',this)">전체</button>
+      <button class="tab-btn" onclick="filterGallery('ai',this)">스타일 컷</button>
+      <button class="tab-btn" onclick="filterGallery('field',this)">현장 시공</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-gcat="ai" style="grid-column:span 2;aspect-ratio:8/5">
+        <img src="images/gallery/gallery_main.jpg" alt="루미브릭 시공사례" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">루미브릭 시공사례</span></div>
+      </div>
+      <div class="gallery-item" data-gcat="ai">
+        <img src="images/gallery/gallery_01.jpg" alt="침실 암막커튼" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">침실 암막커튼</span></div>
+      </div>
+      <div class="gallery-item" data-gcat="ai">
+        <img src="images/gallery/gallery_02.jpg" alt="홈오피스 우드블라인드" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">홈오피스 우드블라인드</span></div>
+      </div>
+      <div class="gallery-item" data-gcat="ai">
+        <img src="images/gallery/gallery_03.jpg" alt="쉬폰커튼" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">쉬폰커튼</span></div>
+      </div>
+      <div class="gallery-item" data-gcat="ai">
+        <img src="images/gallery/gallery_04.jpg" alt="거실 콤비블라인드" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">거실 콤비블라인드</span></div>
+      </div>
+      <div class="gallery-item" data-gcat="field">
+        <img src="images/gallery/field/field_001.jpg" alt="현장 #1" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item" data-gcat="field">
+        <img src="images/gallery/field/field_002.jpg" alt="현장 #2" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item" data-gcat="field">
+        <img src="images/gallery/field/field_003.jpg" alt="현장 #3" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item" data-gcat="field">
+        <img src="images/gallery/field/field_004.jpg" alt="현장 #4" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item" data-gcat="field">
+        <img src="images/gallery/field/field_005.jpg" alt="현장 #5" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item" data-gcat="field">
+        <img src="images/gallery/field/field_006.jpg" alt="현장 #6" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_007.jpg" alt="현장 #7" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_008.jpg" alt="현장 #8" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_009.jpg" alt="현장 #9" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_010.jpg" alt="현장 #10" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_011.jpg" alt="현장 #11" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_012.jpg" alt="현장 #12" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_013.jpg" alt="현장 #13" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_014.jpg" alt="현장 #14" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_015.jpg" alt="현장 #15" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_016.jpg" alt="현장 #16" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_017.jpg" alt="현장 #17" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_018.jpg" alt="현장 #18" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_019.jpg" alt="현장 #19" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_020.jpg" alt="현장 #20" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_021.jpg" alt="현장 #21" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_022.jpg" alt="현장 #22" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_023.jpg" alt="현장 #23" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_024.jpg" alt="현장 #24" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_025.jpg" alt="현장 #25" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_026.jpg" alt="현장 #26" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_027.jpg" alt="현장 #27" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_028.jpg" alt="현장 #28" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_029.jpg" alt="현장 #29" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_030.jpg" alt="현장 #30" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_031.jpg" alt="현장 #31" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_032.jpg" alt="현장 #32" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_033.jpg" alt="현장 #33" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_034.jpg" alt="현장 #34" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_035.jpg" alt="현장 #35" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_036.jpg" alt="현장 #36" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_037.jpg" alt="현장 #37" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_038.jpg" alt="현장 #38" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_039.jpg" alt="현장 #39" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_040.jpg" alt="현장 #40" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_041.jpg" alt="현장 #41" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_042.jpg" alt="현장 #42" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_043.jpg" alt="현장 #43" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_044.jpg" alt="현장 #44" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_045.jpg" alt="현장 #45" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_046.jpg" alt="현장 #46" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_047.jpg" alt="현장 #47" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_048.jpg" alt="현장 #48" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_049.jpg" alt="현장 #49" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_050.jpg" alt="현장 #50" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_051.jpg" alt="현장 #51" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_052.jpg" alt="현장 #52" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_053.jpg" alt="현장 #53" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_054.jpg" alt="현장 #54" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_055.jpg" alt="현장 #55" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_056.jpg" alt="현장 #56" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_057.jpg" alt="현장 #57" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_058.jpg" alt="현장 #58" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_059.jpg" alt="현장 #59" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_060.jpg" alt="현장 #60" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_061.jpg" alt="현장 #61" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_062.jpg" alt="현장 #62" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_063.jpg" alt="현장 #63" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_064.jpg" alt="현장 #64" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_065.jpg" alt="현장 #65" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_066.jpg" alt="현장 #66" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_067.jpg" alt="현장 #67" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_068.jpg" alt="현장 #68" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_069.jpg" alt="현장 #69" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_070.jpg" alt="현장 #70" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_071.jpg" alt="현장 #71" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_072.jpg" alt="현장 #72" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_073.jpg" alt="현장 #73" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_074.jpg" alt="현장 #74" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_075.jpg" alt="현장 #75" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_076.jpg" alt="현장 #76" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_077.jpg" alt="현장 #77" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_078.jpg" alt="현장 #78" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_079.jpg" alt="현장 #79" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_080.jpg" alt="현장 #80" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_081.jpg" alt="현장 #81" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_082.jpg" alt="현장 #82" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_083.jpg" alt="현장 #83" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_084.jpg" alt="현장 #84" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_085.jpg" alt="현장 #85" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_086.jpg" alt="현장 #86" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_087.jpg" alt="현장 #87" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_088.jpg" alt="현장 #88" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_089.jpg" alt="현장 #89" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_090.jpg" alt="현장 #90" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_091.jpg" alt="현장 #91" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_092.jpg" alt="현장 #92" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_093.jpg" alt="현장 #93" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_094.jpg" alt="현장 #94" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_095.jpg" alt="현장 #95" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_096.jpg" alt="현장 #96" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_097.jpg" alt="현장 #97" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_098.jpg" alt="현장 #98" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_099.jpg" alt="현장 #99" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_100.jpg" alt="현장 #100" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_101.jpg" alt="현장 #101" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_102.jpg" alt="현장 #102" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_103.jpg" alt="현장 #103" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_104.jpg" alt="현장 #104" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_105.jpg" alt="현장 #105" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_106.jpg" alt="현장 #106" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_107.jpg" alt="현장 #107" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_108.jpg" alt="현장 #108" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_109.jpg" alt="현장 #109" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_110.jpg" alt="현장 #110" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_111.jpg" alt="현장 #111" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_112.jpg" alt="현장 #112" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_113.jpg" alt="현장 #113" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_114.jpg" alt="현장 #114" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_115.jpg" alt="현장 #115" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div class="gallery-item gallery-hidden" data-gcat="field" style="display:none">
+        <img src="images/gallery/field/field_116.jpg" alt="현장 #116" loading="lazy">
+        <div class="gallery-overlay"><span class="gallery-overlay-text"></span></div>
+      </div>
+      <div style="grid-column:1/-1;text-align:center;padding:20px 0;" id="galleryBtnWrap">
+        <button id="galleryMoreBtn" onclick="toggleGallery()" style="
+          background:var(--black);color:var(--white);
+          padding:16px 48px;font-size:15px;font-weight:600;
+          border:none;cursor:pointer;letter-spacing:.5px;
+          font-family:'Noto Sans KR',sans-serif;transition:background .2s;
+        ">시공사례 더보기 (110장)</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <p class="section-label">Why Lumibrick</p>
+    <h2 class="section-title">루미브릭을 선택하는 이유</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📐</div>
+        <div class="why-title">디테일한 실측</div>
+        <div class="why-desc">창 사이즈는 물론 천장 높이, 에어컨 위치, 가구 간섭까지 꼼꼼하게 측정해 설치 후에도 깔끔하게 마감됩니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✂️</div>
+        <div class="why-title">맞춤 제작</div>
+        <div class="why-desc">규격품이 아닌 고객님 창에 딱 맞는 제품으로 제작합니다. 어색하게 남거나 짧게 뜨는 문제가 없습니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💡</div>
+        <div class="why-title">공간 맞춤 제안</div>
+        <div class="why-desc">밝기, 프라이버시, 인테리어 톤, 생활 패턴을 고려해 디자인과 실용성을 함께 잡는 조합을 제안합니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏷️</div>
+        <div class="why-title">합리적인 가격</div>
+        <div class="why-desc">유통 단계를 줄이고 국산 원단을 직접 선별해 품질과 가격 모두 만족하실 수 있습니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔧</div>
+        <div class="why-title">사후 관리 보장</div>
+        <div class="why-desc">시공 후 불편한 점이 생기지 않도록 A/S를 책임감 있게 도와드립니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚗</div>
+        <div class="why-title">무료 방문 서비스</div>
+        <div class="why-desc">예약만 해주시면 고객님 공간으로 직접 찾아가 무료실측, 무료견적, 무료 시공 상담을 진행합니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section id="area">
+  <div class="container">
+    <p class="section-label">Service Area</p>
+    <h2 class="section-title">상담 가능 지역</h2>
+    <!-- 지도 (풀 너비) -->
+    <div style="margin:40px auto 48px;text-align:center;">
+      <img src="images/service_area.png" alt="루미브릭 서비스 구역 지도" style="width:100%;max-width:700px;border-radius:8px;">
+    </div>
+
+    <!-- 지역 목록: PC 3열 / 모바일 가로 스와이프 -->
+    <div class="area-cards">
+      <div class="area-card">
+        <div class="area-title">구리시</div>
+        <div class="area-sub">전지역 방문 상담 및 시공</div>
+        <div class="area-list">
+          <span class="area-tag">갈매동</span><span class="area-tag">인창동</span><span class="area-tag">교문동</span><span class="area-tag">수택동</span><span class="area-tag">토평동</span><span class="area-tag">사노동</span><span class="area-tag">아천동</span><span class="area-tag">동구동</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="area-title">중랑구</div>
+        <div class="area-sub">방문 상담 및 시공</div>
+        <div class="area-list">
+          <span class="area-tag">망우동</span><span class="area-tag">면목동</span><span class="area-tag">상봉동</span><span class="area-tag">중화동</span><span class="area-tag">묵동</span><span class="area-tag">신내동</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="area-title">동대문구</div>
+        <div class="area-sub">방문 상담 및 시공</div>
+        <div class="area-list">
+          <span class="area-tag">장안동</span><span class="area-tag">전농동</span><span class="area-tag">답십리</span><span class="area-tag">이문동</span><span class="area-tag">회기동</span><span class="area-tag">휘경동</span><span class="area-tag">청량리</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="area-title">광진구</div>
+        <div class="area-sub">방문 상담 및 시공</div>
+        <div class="area-list">
+          <span class="area-tag">구의동</span><span class="area-tag">광장동</span><span class="area-tag">자양동</span><span class="area-tag">화양동</span><span class="area-tag">군자동</span><span class="area-tag">중곡동</span><span class="area-tag">능동</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="area-title">성동구</div>
+        <div class="area-sub">방문 상담 및 시공</div>
+        <div class="area-list">
+          <span class="area-tag">성수동</span><span class="area-tag">왕십리</span><span class="area-tag">행당동</span><span class="area-tag">응봉동</span><span class="area-tag">금호동</span><span class="area-tag">옥수동</span><span class="area-tag">마장동</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <div class="area-title">노원구</div>
+        <div class="area-sub">방문 상담 및 시공</div>
+        <div class="area-list">
+          <span class="area-tag">상계동</span><span class="area-tag">중계동</span><span class="area-tag">하계동</span><span class="area-tag">공릉동</span><span class="area-tag">월계동</span>
+        </div>
+      </div>
+    </div>
+    <p class="area-swipe-hint">옆으로 밀어서 더 보기 →</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">무료 방문 상담 신청</h2>
+    <p class="section-desc">예약 후 방문 일정만 잡아주시면 실측부터 견적, 제작, 시공까지 편리하게 받으실 수 있습니다.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">PHONE</div>
+            <!-- 전화번호 입력 -->
+            <div class="contact-value-placeholder">전화번호 입력 예정</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <div class="contact-label">KAKAO</div>
+            <!-- 카카오 오픈채팅 링크 -->
+            <div class="contact-value-placeholder">카카오 오픈채팅 링크 입력 예정</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">AREA</div>
+            <div class="contact-value" style="font-size:14px">구리시 · 중랑구 · 광진구 · 성동구 · 동대문구 · 노원구</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">HOURS</div>
+            <!-- 운영시간 입력 -->
+            <div class="contact-value-placeholder">운영 시간 입력 예정</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="form-row">
+              <input type="text" placeholder="이름" required />
+            </div>
+            <div class="form-row">
+              <input type="tel" placeholder="연락처" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <select>
+              <option value="">상담 유형 선택</option>
+              <option>거실 커튼</option>
+              <option>침실 커튼 / 암막커튼</option>
+              <option>롤블라인드 / 콤비블라인드</option>
+              <option>우드블라인드</option>
+              <option>전동커튼</option>
+              <option>전체 공간 패키지</option>
+              <option>기타 문의</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <input type="text" placeholder="주소 (구리시 ○○동)" />
+          </div>
+          <div class="form-row">
+            <textarea placeholder="문의 내용을 자유롭게 입력해주세요&#10;(창 개수, 원하는 스타일 등)"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">상담 신청하기</button>
+        </form>
+        <a href="#" class="kakao-btn" id="kakaoBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#3A1D1D"><path d="M12 3C6.48 3 2 6.69 2 11.25c0 2.9 1.88 5.46 4.72 6.97l-.96 3.56 4.14-2.73c.68.1 1.38.15 2.1.15 5.52 0 10-3.69 10-8.25S17.52 3 12 3z"/></svg>
+          카카오톡으로 문의하기
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">LUMI<span>BRICK</span></div>
+  <div class="footer-info">
+    구리커튼 블라인드 전문 브랜드 루미브릭<br>
+    구리시 · 중랑구 · 광진구 · 성동구 · 동대문구 · 노원구 방문 상담<br>
+    <!-- 사업자 정보 입력 예정 -->
+  </div>
+  <div class="footer-copy">© 2025 LUMIBRICK. All rights reserved.</div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <a href="tel:000-0000-0000" class="float-btn float-tel" id="floatTel">📞 전화 상담</a>
+  <a href="#" class="float-btn float-kakao" id="floatKakao">💬 카카오 문의</a>
+</div>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Product filter
+  function filterProducts(cat, btn) {
+    btn.closest('.product-tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
+
+  // Gallery filter
+  function filterGallery(cat, btn) {
+    btn.closest('.product-tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#galleryGrid .gallery-item').forEach((item, i) => {
+      const show = cat === 'all' || item.dataset.gcat === cat;
+      item.style.display = show ? '' : 'none';
+      // 첫 번째 보이는 아이템을 크게
+      if (show && item.style.gridColumn !== undefined) item.style.gridColumn = '';
+    });
+    // 첫 번째 표시 아이템에 span 적용
+    const visible = [...document.querySelectorAll('#galleryGrid .gallery-item')].filter(el => el.style.display !== 'none');
+    visible.forEach((el, i) => {
+      el.style.gridColumn = i === 0 ? 'span 2' : '';
+      el.style.aspectRatio = i === 0 ? '8/5' : '4/3';
+    });
+  }
+
+  // Gallery 더보기/접기
+  let galleryExpanded = false;
+  function toggleGallery() {
+    galleryExpanded = !galleryExpanded;
+    const btn = document.getElementById('galleryMoreBtn');
+    document.querySelectorAll('.gallery-hidden').forEach(el => {
+      el.style.display = galleryExpanded ? '' : 'none';
+    });
+    btn.textContent = galleryExpanded ? '접기' : '시공사례 더보기 (110장)';
+    if (!galleryExpanded) {
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Form submit (카카오/전화 연동 전 임시)
+  function submitForm(e) {
+    e.preventDefault();
+    alert('상담 신청이 접수되었습니다!\n빠른 시간 내에 연락드리겠습니다.');
+    e.target.reset();
+  }
+
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.why-card, .product-card, .process-step, .about-point').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
