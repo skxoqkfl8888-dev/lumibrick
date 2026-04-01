@@ -309,7 +309,6 @@
     .area-card {
       background: var(--white); padding: 24px; border: 1px solid var(--border); border-radius: 8px;
     }
-    .area-swipe-hint { display: none; }
 
     /* ── CONTACT ── */
     #contact { background: var(--black); }
@@ -475,21 +474,7 @@
       .why-desc { font-size: 14px; }
 
       /* Area */
-      .area-cards {
-        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-        gap: 14px; padding-bottom: 12px;
-        -webkit-overflow-scrolling: touch;
-      }
-      .area-cards::-webkit-scrollbar { height: 4px; }
-      .area-cards::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
-      .area-card {
-        min-width: 260px; flex-shrink: 0; scroll-snap-align: start;
-      }
-      .area-swipe-hint {
-        display: block; text-align: center; font-size: 12px; color: var(--gray);
-        margin-top: 8px; animation: swipeHint 2s ease-in-out infinite;
-      }
-      @keyframes swipeHint { 0%,100%{opacity:.4;} 50%{opacity:1;} }
+      .area-cards { grid-template-columns: 1fr 1fr; gap: 16px; }
       .area-tag { font-size: 13px; padding: 8px 14px; }
 
       /* Contact */
@@ -1347,7 +1332,6 @@
         </div>
       </div>
     </div>
-    <p class="area-swipe-hint">옆으로 밀어서 더 보기 →</p>
   </div>
 </section>
 
