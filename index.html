@@ -1354,7 +1354,7 @@
           <div class="contact-icon">💬</div>
           <div>
             <div class="contact-label">KAKAO</div>
-            <a href="https://open.kakao.com/o/s6jboEpi" target="_blank" class="contact-value">카카오 오픈채팅 바로가기</a>
+            <a href="http://pf.kakao.com/_IHBnX/chat" target="_blank" class="contact-value">카카오 오픈채팅 바로가기</a>
           </div>
         </div>
         <div class="contact-item">
@@ -1368,8 +1368,7 @@
           <div class="contact-icon">🕐</div>
           <div>
             <div class="contact-label">HOURS</div>
-            <!-- 운영시간 입력 -->
-            <div class="contact-value-placeholder">운영 시간 입력 예정</div>
+            <div class="contact-value">매일 09:00 – 22:00</div>
           </div>
         </div>
       </div>
@@ -1384,16 +1383,15 @@
             </div>
           </div>
           <div class="form-row">
-            <select>
+            <select id="consultType" onchange="toggleDirectInput(this)">
               <option value="">상담 유형 선택</option>
-              <option>거실 커튼</option>
-              <option>침실 커튼 / 암막커튼</option>
-              <option>롤블라인드 / 콤비블라인드</option>
-              <option>우드블라인드</option>
-              <option>전동커튼</option>
-              <option>전체 공간 패키지</option>
-              <option>기타 문의</option>
+              <option value="커튼">커튼</option>
+              <option value="블라인드">블라인드</option>
+              <option value="커튼/블라인드">커튼/블라인드</option>
+              <option value="미정">미정</option>
+              <option value="직접입력">직접 입력</option>
             </select>
+            <input type="text" id="directInput" placeholder="상담 유형을 직접 입력해주세요" style="display:none;margin-top:8px;" />
           </div>
           <div class="form-row">
             <input type="text" placeholder="주소 (구리시 ○○동)" />
@@ -1403,7 +1401,7 @@
           </div>
           <button type="submit" class="btn-submit">상담 신청하기</button>
         </form>
-        <a href="https://open.kakao.com/o/s6jboEpi" target="_blank" class="kakao-btn" id="kakaoBtn">
+        <a href="http://pf.kakao.com/_IHBnX/chat" target="_blank" class="kakao-btn" id="kakaoBtn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#3A1D1D"><path d="M12 3C6.48 3 2 6.69 2 11.25c0 2.9 1.88 5.46 4.72 6.97l-.96 3.56 4.14-2.73c.68.1 1.38.15 2.1.15 5.52 0 10-3.69 10-8.25S17.52 3 12 3z"/></svg>
           카카오톡으로 문의하기
         </a>
@@ -1426,7 +1424,7 @@
 <!-- FLOATING CTA -->
 <div class="float-cta">
   <a href="tel:02-6238-4545" class="float-btn float-tel" id="floatTel">📞 전화 상담</a>
-  <a href="https://open.kakao.com/o/s6jboEpi" target="_blank" class="float-btn float-kakao" id="floatKakao">💬 카카오 문의</a>
+  <a href="http://pf.kakao.com/_IHBnX/chat" target="_blank" class="float-btn float-kakao" id="floatKakao">💬 카카오 문의</a>
 </div>
 
 <script>
@@ -1481,10 +1479,15 @@
     }
   }
 
-  // Form submit (카카오/전화 연동 전 임시)
+  function toggleDirectInput(sel) {
+    const direct = document.getElementById('directInput');
+    direct.style.display = sel.value === '직접입력' ? 'block' : 'none';
+    direct.required = sel.value === '직접입력';
+  }
+
   function submitForm(e) {
     e.preventDefault();
-    alert('상담 신청이 접수되었습니다!\n빠른 시간 내에 연락드리겠습니다.');
+    window.open('http://pf.kakao.com/_IHBnX/chat', '_blank');
     e.target.reset();
   }
 
