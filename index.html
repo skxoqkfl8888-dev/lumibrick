@@ -1503,8 +1503,10 @@
       });
     } catch (err) {
       console.error('CRM 전송 오류:', err);
+      alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+      return;
     }
-    window.open('http://pf.kakao.com/_IHBnX/chat', '_blank');
+    alert('상담 신청이 완료되었습니다.\n빠른 시간 내에 연락드리겠습니다.');
     e.target.reset();
     toggleDirectInput(document.getElementById('consultType'));
   }
