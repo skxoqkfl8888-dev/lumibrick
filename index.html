@@ -1374,13 +1374,8 @@
       </div>
       <div class="contact-form-wrap">
         <form onsubmit="submitForm(event)">
-          <div class="form-grid">
-            <div class="form-row">
-              <input id="f_name" type="text" placeholder="이름" required />
-            </div>
-            <div class="form-row">
-              <input id="f_phone" type="tel" placeholder="연락처" required />
-            </div>
+          <div class="form-row">
+            <input id="f_phone" type="tel" placeholder="연락처" required />
           </div>
           <div class="form-row">
             <select id="consultType" onchange="toggleDirectInput(this)">
@@ -1392,6 +1387,9 @@
               <option value="직접입력">직접 입력</option>
             </select>
             <input type="text" id="directInput" placeholder="상담 유형을 직접 입력해주세요" style="display:none;margin-top:8px;" />
+          </div>
+          <div class="form-row">
+            <input id="f_space" type="text" placeholder="설치공간 (예: 거실, 안방, 사무실 등)" />
           </div>
           <div class="form-row">
             <input id="f_address" type="text" placeholder="주소 (구리시 ○○동)" />
@@ -1489,9 +1487,9 @@
     e.preventDefault();
     const type = document.getElementById('consultType').value;
     const body = {
-      name:    document.getElementById('f_name').value,
       phone:   document.getElementById('f_phone').value,
       type:    type === '직접입력' ? document.getElementById('directInput').value : type,
+      space:   document.getElementById('f_space').value,
       address: document.getElementById('f_address').value,
       message: document.getElementById('f_message').value
     };
