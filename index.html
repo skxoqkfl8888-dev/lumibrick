@@ -1376,10 +1376,10 @@
         <form onsubmit="submitForm(event)">
           <div class="form-grid">
             <div class="form-row">
-              <input type="text" placeholder="이름" required />
+              <input id="f_name" type="text" placeholder="이름" required />
             </div>
             <div class="form-row">
-              <input type="tel" placeholder="연락처" required />
+              <input id="f_phone" type="tel" placeholder="연락처" required />
             </div>
           </div>
           <div class="form-row">
@@ -1394,10 +1394,10 @@
             <input type="text" id="directInput" placeholder="상담 유형을 직접 입력해주세요" style="display:none;margin-top:8px;" />
           </div>
           <div class="form-row">
-            <input type="text" placeholder="주소 (구리시 ○○동)" />
+            <input id="f_address" type="text" placeholder="주소 (구리시 ○○동)" />
           </div>
           <div class="form-row">
-            <textarea placeholder="문의 내용을 자유롭게 입력해주세요&#10;(창 개수, 원하는 스타일 등)"></textarea>
+            <textarea id="f_message" placeholder="문의 내용을 자유롭게 입력해주세요&#10;(창 개수, 원하는 스타일 등)"></textarea>
           </div>
           <button type="submit" class="btn-submit">상담 신청하기</button>
         </form>
@@ -1485,10 +1485,28 @@
     direct.required = sel.value === '직접입력';
   }
 
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
+    const type = document.getElementById('consultType').value;
+    const body = {
+      name:    document.getElementById('f_name').value,
+      phone:   document.getElementById('f_phone').value,
+      type:    type === '직접입력' ? document.getElementById('directInput').value : type,
+      address: document.getElementById('f_address').value,
+      message: document.getElementById('f_message').value
+    };
+    try {
+      await fetch('https://desktop-ma3fumc.tail8fe8ce.ts.net/api/homepage/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+    } catch (err) {
+      console.error('CRM 전송 오류:', err);
+    }
     window.open('http://pf.kakao.com/_IHBnX/chat', '_blank');
     e.target.reset();
+    toggleDirectInput(document.getElementById('consultType'));
   }
 
   // Scroll reveal animation
