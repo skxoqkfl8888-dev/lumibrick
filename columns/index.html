@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>루미브릭 칼럼 | 커튼·블라인드 전문 가이드</title>
+  <meta name="description" content="루미브릭 전지점이 발행하는 커튼·블라인드 전문 칼럼. 공간별 선택 가이드, 인테리어 팁, 시공 사례 등 실전 정보를 지점별로 정리했습니다." />
+  <meta name="keywords" content="커튼 가이드, 블라인드 가이드, 커튼 선택법, 블라인드 선택법, 루미브릭 칼럼" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#b5975a" />
+  <link rel="canonical" href="https://lumibrick.kro.kr/columns/" />
+  <link rel="icon" type="image/png" href="/images/logo_icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="루미브릭 칼럼" />
+  <meta property="og:title" content="루미브릭 칼럼 | 커튼·블라인드 전문 가이드" />
+  <meta property="og:description" content="커튼·블라인드 전문 지식과 지점별 시공 노하우를 공유합니다." />
+  <meta property="og:url" content="https://lumibrick.kro.kr/columns/" />
+  <meta property="og:image" content="https://lumibrick.kro.kr/images/hero.jpg" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "루미브릭 칼럼",
+    "url": "https://lumibrick.kro.kr/columns/",
+    "description": "루미브릭 전지점이 발행하는 커튼·블라인드 전문 가이드",
+    "publisher": {
+      "@type": "Organization",
+      "name": "루미브릭",
+      "url": "https://lumibrick.kro.kr/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/branch.css" />
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">LUMI<span>BRICK</span></a>
+  <ul class="nav-links">
+    <li><a href="/">홈</a></li>
+    <li><a href="/columns/">칼럼</a></li>
+    <li><a href="/#area">전지점</a></li>
+  </ul>
+  <a href="/#contact" class="nav-cta">상담 신청</a>
+</nav>
+
+<header class="page-hero">
+  <div class="eyebrow">LUMIBRICK COLUMN</div>
+  <h1>커튼·블라인드 전문 칼럼</h1>
+  <p>루미브릭 전지점이 발행하는 공간별 선택 가이드, 인테리어 팁, 시공 노하우</p>
+</header>
+
+<main class="wrap">
+  <nav class="filter-tabs" id="filterTabs" aria-label="지점 필터">
+    <button class="filter-tab active" data-branch="all">전체</button>
+    <button class="filter-tab" data-branch="인창점">인창점</button>
+    <button class="filter-tab" data-branch="면목점">면목점</button>
+    <button class="filter-tab" data-branch="성수점">성수점</button>
+    <button class="filter-tab" data-branch="장안평점">장안평점</button>
+    <button class="filter-tab" data-branch="잠실점">잠실점</button>
+    <button class="filter-tab" data-branch="의정부점">의정부점</button>
+    <button class="filter-tab" data-branch="휘경점">휘경점</button>
+  </nav>
+
+  <div class="column-grid" id="columnGrid"></div>
+  <div id="empty" class="empty" style="display:none">
+    선택한 지점의 칼럼이 아직 없습니다.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">LUMI<span>BRICK</span></div>
+  <div class="footer-info">
+    구리시 · 중랑구 · 광진구 · 성동구 · 동대문구 · 노원구 · 의정부시<br>
+    루미브릭 7개 지점 운영
+  </div>
+  <div class="footer-copy">© 2026 LUMIBRICK. All rights reserved.</div>
+</footer>
+
+<div class="float-cta">
+  <a href="tel:010-2451-7257" class="float-btn">📞 전화 상담</a>
+  <a href="http://pf.kakao.com/_IHBnX/chat" target="_blank" class="float-btn kakao">💬 카카오 문의</a>
+</div>
+
+<script>
+  let allPosts = [];
+  let currentFilter = 'all';
+
+  function render() {
+    const list = currentFilter === 'all' ? allPosts : allPosts.filter(p => p.branch === currentFilter);
+    const grid = document.getElementById('columnGrid');
+    const empty = document.getElementById('empty');
+    if (list.length === 0) {
+      grid.style.display = 'none';
+      empty.style.display = 'block';
+      return;
+    }
+    grid.style.display = 'grid';
+    empty.style.display = 'none';
+    grid.innerHTML = list.map(p => `
+      <a class="column-card" href="/columns/${p.slug}.html">
+        ${p.thumbnail ? `<div class="thumb" style="background-image:url('${p.thumbnail}')"></div>` : ''}
+        <div class="body">
+          <div class="meta"><span class="branch">${p.branch}</span><span>${p.date}</span></div>
+          <h3>${p.title}</h3>
+          <div class="excerpt">${p.excerpt || ''}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  document.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.branch;
+      render();
+    });
+  });
+
+  fetch('/columns/posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      // 날짜 내림차순
+      allPosts = posts.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      render();
+    })
+    .catch(e => {
+      document.getElementById('columnGrid').style.display = 'none';
+      document.getElementById('empty').textContent = '칼럼을 불러올 수 없습니다.';
+      document.getElementById('empty').style.display = 'block';
+    });
+</script>
+</body>
+</html>

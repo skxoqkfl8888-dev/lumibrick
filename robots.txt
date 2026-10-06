@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# 네이버 검색 봇
+User-agent: Yeti
+Allow: /
+
+# 구글 검색 봇
+User-agent: Googlebot
+Allow: /
+
+# 빙 검색 봇
+User-agent: bingbot
+Allow: /
+
+# 다음 검색 봇
+User-agent: Daum
+Allow: /
+
+Sitemap: https://lumibrick.kro.kr/sitemap.xml
